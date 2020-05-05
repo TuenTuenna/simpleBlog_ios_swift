@@ -1,16 +1,36 @@
 PODS:
   - Alamofire (5.0.2)
+  - FFPopup (1.1.0)
+  - Floaty (4.2.0)
+  - QuickLayout (3.0.0)
+  - SwiftEntryKit (1.2.3):
+    - QuickLayout (= 3.0.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0)
+  - FFPopup
+  - Floaty (~> 4.2.0)
+  - SwiftEntryKit (= 1.2.3)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FFPopup
+    - Floaty
+    - QuickLayout
+    - SwiftEntryKit
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  FFPopup: 408e38711f4fe2fddd3c8612c045cf0df6da2e4e
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
+  QuickLayout: 07b45a72b10083fee3f095990cfed1c1e7b27f0a
+  SwiftEntryKit: 340713c2e4a6662c5149629990bf1088bf5f0389
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: a21eec5ffc64bbc94c2aaee98fb1645b20247e28
+PODFILE CHECKSUM: a603d4865b3aa5a2fbd79b263943365a122fd025
 
 COCOAPODS: 1.8.4

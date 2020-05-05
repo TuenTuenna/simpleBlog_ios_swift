@@ -8,6 +8,9 @@
 
 import UIKit
 import Alamofire
+import Floaty
+import SwiftyJSON
+import SwiftEntryKit
 
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -32,8 +35,14 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
+//        self.tableView.separatorColor = [UIColor clearColor];
+        tableView.separatorColor = .clear
+        
         // 데이터 가져오기
         loadMoreData(page: 1)
+        
+        let parameters = ["page": String(1)]
+        
         
         let refreshControl = UIRefreshControl()
         
@@ -44,8 +53,29 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // 네비게이션 바 버튼을 추가한다.
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateView))
+        
+        
+        //
+        let floaty = Floaty()
+//        floaty.addItem(title: "Hello, World!")
+        floaty.addItem(icon: UIImage(named: "up"), handler: { item in
+            print("플로팅 버튼이 클릭되었음")
+            
+            if #available(iOS 11.0, *) {
+                self.tableView.setContentOffset(CGPoint(x: 0, y: -self.tableView.adjustedContentInset.top), animated: true)
+            } else {
+                self.tableView.setContentOffset(CGPoint(x: 0, y: -self.tableView.contentInset.top), animated: true)
+            }
+            
+            floaty.close()
+            
+        })
+        self.view.addSubview(floaty)
+        
+        
+        
     }
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
@@ -59,6 +89,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     //MARK: - selector 메소드
+    
+    
     
     @objc fileprivate func goToCreateView(){
         print("goToCreateView()")
@@ -87,48 +119,45 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let parameters = ["page": String(page)]
         
-        // 컴플레션 블락
-        AF.request(Constants.API.GET_POSTS, parameters: parameters).responseJSON { response in
-                    if let value = response.value as? [String: AnyObject] {
-        //                print(value)
-                        print(value["data"] as Any)
-                        
-                        if let array = value["data"] as? NSArray {
-                            
-                            print(array.count)
-                            
-                            for obj in array {
-                                if let dict = obj as? NSDictionary {
-                                    // Now reference the data you need using:
-        //                            let title = dict.value(forKey: "title")
-        //                            let body = dict.value(forKey: "body")
-                                    
-                                    guard let title = dict.value(forKey: "title") else { return }
-                                    guard let body = dict.value(forKey: "body") else { return }
-                                    guard let id = dict.value(forKey: "id") else { return }
-                                    print("id: \(id)")
-                                    print("title: \(title)")
-                                    print("body: \(body)")
-                                    
-                                    // 포스팅 배열에 넣는다.
-                                    self.posts.append(Post(id: "\(id)" , title: title as! String, body: body as! String))
-                                    
-                                    
-                                    print("포스팅 배열에 들어있다. : \(self.posts.count)")
-                                    
-                                    self.tableView.reloadData()
-                                    self.tableView?.refreshControl?.endRefreshing()
-        //                            print("title: \(title ?? "")")
-        //                            print("body: \(body ?? "")")
-                                    
-                                }
-                            }
-                        }
-                        
-                    }
-                    
-          
-                }
+        // 싱글턴 적용 api get 메소드 호출
+        ApiService.shared.getRequest(url: Constants.API.GET_POSTS, parameters: parameters, success: {
+            
+            response in
+            
+            print("싱글턴 response : \(response)")
+            
+            let jsonArray = response["data"]
+            
+            print("jsonArray.count : \(jsonArray.count)")
+            
+            // If json is .Array
+            // The `index` is 0..<json.count's string value
+            for (index,subJson):(String, JSON) in jsonArray {
+                // Do something you want
+                
+//                print("subJson title : \(subJson["title"])")
+
+                let id = subJson["id"].stringValue
+                
+                // 포스팅 배열에 넣는다.
+                self.posts.append(Post(id: subJson["id"].stringValue, title: subJson["title"].stringValue, body: subJson["body"].stringValue))
+                
+                
+//                print("싱글턴 포스팅 배열에 들어있다. : \(self.posts.count)")
+            }
+            
+            self.tableView.reloadData()
+            self.tableView?.refreshControl?.endRefreshing()
+            
+        }, failure: {
+            
+            errorResponse in
+            
+            print("싱글턴 errorResponse : \(errorResponse)")
+            
+        })
+        
+        
     }
     
     
@@ -156,6 +185,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 100
+//    }
     
     // 즉 쎌을 랜더링 한다
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -164,6 +196,20 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         cell.title.text = self.posts[indexPath.row].title as String
         cell.body.text = self.posts[indexPath.row].body as String
+        
+//        containerView.layer.cornerRadius = cornerRadius
+        
+        cell.bgView.layer.cornerRadius = 15
+        
+        cell.bgView.backgroundColor = .white
+        
+        // set the shadow of the view's layer
+        cell.bgView.layer.shadowColor = #colorLiteral(red: 0.4313471503, green: 0.4313471503, blue: 0.4313471503, alpha: 1)
+        cell.bgView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+        cell.bgView.layer.shadowOpacity = 0.8
+        cell.bgView.layer.shadowRadius = 10.0
+        
+        cell.selectionStyle = .none
         
         // Check if the last row number is the same as the last current data element
        if indexPath.row == self.posts.count - 1 {

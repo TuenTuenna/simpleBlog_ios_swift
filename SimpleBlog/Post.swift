@@ -9,7 +9,7 @@
 import Foundation
 
 // 데이터 클래스
-struct Post {
+struct Post : Codable{
     
     let title: String
     let body: String

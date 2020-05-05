@@ -7,4 +7,8 @@ target 'SimpleBlog' do
 
   # Pods for SimpleBlog
   pod 'Alamofire', '~> 5.0.0'
+  pod 'Floaty', '~> 4.2.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'FFPopup'
+  pod 'SwiftEntryKit', '1.2.3'
 end

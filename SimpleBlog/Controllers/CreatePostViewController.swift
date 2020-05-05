@@ -25,8 +25,11 @@ class CreatePostViewController: UIViewController, UITextViewDelegate, UITextFiel
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "등록하기", style: .plain, target: self, action: #selector(registerPost))
         
+        // 화면을 터치 했을때 키보드를 내린다.
+        hideKeyboardSetting()
         
     }
+ 
     
     //MARK: - fileprivate 메소드
     @objc fileprivate func registerPost(){

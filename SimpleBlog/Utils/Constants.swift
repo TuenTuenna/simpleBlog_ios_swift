@@ -13,6 +13,7 @@ struct Constants {
     
     struct API {
         static let GET_POSTS: String = "\(API_BASE_URL)post"
+        static let GET_POST_DETAIL: String = "\(API_BASE_URL)post"
     }
     
 }

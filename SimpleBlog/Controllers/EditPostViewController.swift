@@ -36,10 +36,13 @@ class EditPostViewController: UIViewController, UITextViewDelegate, UITextFieldD
         
         titleInput.text = receivedPost?.title
         bodyInput.text = receivedPost?.body
-        
+
+        // 화면을 터치 했을때 키보드를 내린다.
+        hideKeyboardSetting()
         
     }
     
+
     
     @objc fileprivate func editComplete(){
         print("editComplete() called")
