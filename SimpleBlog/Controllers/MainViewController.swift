@@ -24,6 +24,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var selectedPost: Post?
     
+    var lastPage = 0
+    var currentPage = 0
+    
     
     
     //MARK: - 오버라이드 메소드
@@ -39,7 +42,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.separatorColor = .clear
         
         // 데이터 가져오기
-        loadMoreData(page: 1)
+//        loadMoreData(page: 1)
         
         let parameters = ["page": String(1)]
         
@@ -106,7 +109,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("handleRefresh 호출됨")
         posts.removeAll()
         
-        self.page = 1
+        self.page = 0
         loadMoreData(page: page)
     }
     
@@ -117,7 +120,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.page = page + 1
         
-        let parameters = ["page": String(page)]
+        let parameters = ["page": String(self.page)]
         
         // 싱글턴 적용 api get 메소드 호출
         ApiService.shared.getRequest(url: Constants.API.GET_POSTS, parameters: parameters, success: {
@@ -127,6 +130,11 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
             print("싱글턴 response : \(response)")
             
             let jsonArray = response["data"]
+            
+            self.lastPage = response["last_page"].int!
+            self.currentPage = response["current_page"].int!
+            
+            self.page = self.currentPage
             
             print("jsonArray.count : \(jsonArray.count)")
             
@@ -215,7 +223,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         // Check if the last row number is the same as the last current data element
        if indexPath.row == self.posts.count - 1 {
-        self.loadMoreData(page: self.page)
+            if(self.lastPage > self.currentPage){
+                self.loadMoreData(page: self.currentPage)
+            }
        }
         
         
