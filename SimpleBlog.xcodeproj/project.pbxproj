@@ -24,6 +24,7 @@
 		F294550C2458681A00E85276 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294550B2458681A00E85276 /* Extensions.swift */; };
 		F2F65C152461936300708DD5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F65C142461936300708DD5 /* ApiService.swift */; };
 		F2F65C172461C11300708DD5 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F65C162461C11300708DD5 /* Popup.swift */; };
+		F2F8B0DA246AD34800377F6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F294550B2458681A00E85276 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2F65C142461936300708DD5 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F2F65C162461C11300708DD5 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				F27FBF7424488806004A0B47 /* MainViewController.swift */,
 				F28866BF244F2F76008AF3D4 /* CreatePostViewController.swift */,
 				F28866C1244F390D008AF3D4 /* EditPostViewController.swift */,
+				F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				F2F65C172461C11300708DD5 /* Popup.swift in Sources */,
 				F27FBF7524488806004A0B47 /* MainViewController.swift in Sources */,
 				F28866BD244F1F75008AF3D4 /* PostDetailViewController.swift in Sources */,
+				F2F8B0DA246AD34800377F6E /* ProfileViewController.swift in Sources */,
 				F28866C0244F2F76008AF3D4 /* CreatePostViewController.swift in Sources */,
 				F27FBF7124488806004A0B47 /* AppDelegate.swift in Sources */,
 				F27FBF7324488806004A0B47 /* SceneDelegate.swift in Sources */,
