@@ -194,6 +194,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostTableViewCell
         
+        
+        
         cell.title.text = self.posts[indexPath.row].title as String
         cell.body.text = self.posts[indexPath.row].body as String
         
