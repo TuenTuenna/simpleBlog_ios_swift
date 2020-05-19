@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84EA5BAEC5B136A3292269B1 /* Pods_SimpleBlog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4704638548A6236FA94920A0 /* Pods_SimpleBlog.framework */; };
+		F254BB0B247405C200BDEE2E /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F254BB0A247405C200BDEE2E /* CameraController.swift */; };
 		F27FBF7124488806004A0B47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FBF7024488806004A0B47 /* AppDelegate.swift */; };
 		F27FBF7324488806004A0B47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FBF7224488806004A0B47 /* SceneDelegate.swift */; };
 		F27FBF7524488806004A0B47 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FBF7424488806004A0B47 /* MainViewController.swift */; };
@@ -24,12 +25,14 @@
 		F294550C2458681A00E85276 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F294550B2458681A00E85276 /* Extensions.swift */; };
 		F2F65C152461936300708DD5 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F65C142461936300708DD5 /* ApiService.swift */; };
 		F2F65C172461C11300708DD5 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F65C162461C11300708DD5 /* Popup.swift */; };
+		F2F8B0DA246AD34800377F6E /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4704638548A6236FA94920A0 /* Pods_SimpleBlog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleBlog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB8CC52BDBADD11B2CE865B4 /* Pods-SimpleBlog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBlog.release.xcconfig"; path = "Target Support Files/Pods-SimpleBlog/Pods-SimpleBlog.release.xcconfig"; sourceTree = "<group>"; };
 		EE7A6E29822359C08BDECB06 /* Pods-SimpleBlog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBlog.debug.xcconfig"; path = "Target Support Files/Pods-SimpleBlog/Pods-SimpleBlog.debug.xcconfig"; sourceTree = "<group>"; };
+		F254BB0A247405C200BDEE2E /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		F27FBF6D24488806004A0B47 /* SimpleBlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleBlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27FBF7024488806004A0B47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F27FBF7224488806004A0B47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		F294550B2458681A00E85276 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F2F65C142461936300708DD5 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		F2F65C162461C11300708DD5 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,8 @@
 				F27FBF7424488806004A0B47 /* MainViewController.swift */,
 				F28866BF244F2F76008AF3D4 /* CreatePostViewController.swift */,
 				F28866C1244F390D008AF3D4 /* EditPostViewController.swift */,
+				F2F8B0D9246AD34800377F6E /* ProfileViewController.swift */,
+				F254BB0A247405C200BDEE2E /* CameraController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,10 +270,12 @@
 				F2F65C172461C11300708DD5 /* Popup.swift in Sources */,
 				F27FBF7524488806004A0B47 /* MainViewController.swift in Sources */,
 				F28866BD244F1F75008AF3D4 /* PostDetailViewController.swift in Sources */,
+				F2F8B0DA246AD34800377F6E /* ProfileViewController.swift in Sources */,
 				F28866C0244F2F76008AF3D4 /* CreatePostViewController.swift in Sources */,
 				F27FBF7124488806004A0B47 /* AppDelegate.swift in Sources */,
 				F27FBF7324488806004A0B47 /* SceneDelegate.swift in Sources */,
 				F27FBF8524488D71004A0B47 /* PostTableViewCell.swift in Sources */,
+				F254BB0B247405C200BDEE2E /* CameraController.swift in Sources */,
 				F27FBF872448A0E5004A0B47 /* Post.swift in Sources */,
 				F28866C2244F390D008AF3D4 /* EditPostViewController.swift in Sources */,
 				F294550C2458681A00E85276 /* Extensions.swift in Sources */,

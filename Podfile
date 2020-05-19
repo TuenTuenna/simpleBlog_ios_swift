@@ -11,4 +11,5 @@ target 'SimpleBlog' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'FFPopup'
   pod 'SwiftEntryKit', '1.2.3'
+  pod "SwiftyCam"
 end

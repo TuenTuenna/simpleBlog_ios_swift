@@ -60,5 +60,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>&quot;안녕하세요?! 카메라 써도 되죠?&quot;</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>&quot;안녕하세요?! 앨번 좀 봐도 되죠?&quot;</string>
 </dict>
 </plist>

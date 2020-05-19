@@ -57,6 +57,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         // 네비게이션 바 버튼을 추가한다.
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(goToCreateView))
         
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "user"), style: .plain, target: self, action: #selector(goToProfileView))
+        
+        navigationItem.leftBarButtonItem = barButtonItem
         
         //
         let floaty = Floaty()
@@ -75,17 +78,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         self.view.addSubview(floaty)
         
-        
-        
     }
-
     
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
             print("viewWillAppear() called")
         
         handleRefresh()
-        
     }
     
     
@@ -93,17 +92,19 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: - selector 메소드
     
-    
-    
     @objc fileprivate func goToCreateView(){
         print("goToCreateView()")
         // 화면 전환을 발동시킨다.
         performSegue(withIdentifier: "goToCreatePostVC", sender: self)
     }
     
-//    @objc fileprivate func rightBtnClicked(){
-//        print("rightBtnClicked()")
-//    }
+    @objc fileprivate func goToProfileView(){
+        print("goToProfileView - 프로필 화면으로 이동한다.")
+        
+        performSegue(withIdentifier: "goToProfileVC", sender: self)
+    }
+    
+    
     
     @objc fileprivate func handleRefresh(){
         print("handleRefresh 호출됨")
